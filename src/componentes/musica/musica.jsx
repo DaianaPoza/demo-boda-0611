@@ -1,0 +1,6 @@
+import {forwardRef,useImperativeHandle,useRef,useState} from 'react'
+import {evento} from '../../config/evento'
+import Icono from '../../compartidos/icono'
+const Musica=forwardRef(function Musica(_,ref){const audio=useRef(null);const [reproduciendo,setReproduciendo]=useState(false);const [error,setError]=useState('');const ruta=evento.musica.trim();const src=ruta?`${import.meta.env.BASE_URL}${ruta.replace(/^\/+/, '')}`:undefined;async function reproducir(){if(!audio.current)return;try{await audio.current.play();setError('')}catch{setError('La música no está disponible. Podés seguir disfrutando la invitación.')}}useImperativeHandle(ref,()=>({iniciar:reproducir}));return src?<><audio ref={audio} src={src} loop preload="none" onPlay={()=>setReproduciendo(true)} onPause={()=>setReproduciendo(false)} onError={()=>{setReproduciendo(false);setError('La música no está disponible.')}}/><div className="musica"><button aria-label={reproduciendo?'Pausar música':'Reanudar música'} title={reproduciendo?'Pausar música':'Reanudar música'} onClick={()=>reproduciendo?audio.current.pause():reproducir()}><Icono nombre={reproduciendo?'pausa':'musica'}/></button>{error&&<span role="status">{error}</span>}</div></>:null});export default Musica
+
+import './musica.css'

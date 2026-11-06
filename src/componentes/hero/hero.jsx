@@ -1,0 +1,4 @@
+import { evento, nombres, fechaParte } from '../../config/evento'
+export default function Hero(){return <header className="hero" tabIndex="-1" id="inicio"><div className="hero-top"><span>{evento.pareja.map(n=>n[0]).join(' & ')}</span><span>NUESTRA BODA · {fechaParte({year:'numeric'})}</span></div><div className="hero-copy"><p className="eyebrow">NOS CASAMOS</p><h1 className="hero-nombres" aria-label={nombres}><span aria-hidden="true">{evento.pareja[0]}</span><span className="hero-conjuncion" aria-hidden="true">y</span><span aria-hidden="true">{evento.pareja[1]}</span></h1><div className="hero-linea"/><p>El mejor lugar del mundo<br/>es donde estamos juntos.</p><span className="hero-bienvenida">Y queremos que seas parte de nuestra historia.</span></div><a className="hero-scroll" href="#fecha">DESCUBRÍ NUESTRA CELEBRACIÓN <span>↓</span></a></header>}
+
+import './hero.css'

@@ -1,0 +1,13 @@
+.regalos{background:var(--blue-light)}
+.regalos>svg{margin-bottom:24px;width:36px;height:36px}
+.regalos .texto{margin:23px auto 28px}
+.datos-regalos{display:grid;grid-template-rows:0fr;opacity:0;visibility:hidden;max-width:480px;margin:0 auto;text-align:left;transition:grid-template-rows .3s ease,opacity .25s ease,visibility 0s .3s}
+.datos-regalos.abierto{grid-template-rows:1fr;opacity:1;visibility:visible;transition:grid-template-rows .3s ease,opacity .25s ease,visibility 0s}
+.datos-regalos-interior{min-height:0;overflow:hidden}
+.datos-regalos-contenido{padding:28px 8px 8px}
+.dato-regalo{margin:0 0 16px}
+.dato-regalo label{display:block;font-size:12px}
+.dato-regalo input{margin-block:8px}
+.copiar{background:transparent;border:0;border-bottom:1px solid var(--ink);color:var(--ink);padding:12px 10px;min-height:44px;cursor:pointer}
+.mensaje-copia{font-size:12px;margin:12px 0 0;overflow-wrap:anywhere}
+@media(prefers-reduced-motion:reduce){.datos-regalos,.datos-regalos.abierto{transition:none}}
